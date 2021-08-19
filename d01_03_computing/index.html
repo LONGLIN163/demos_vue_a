@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 60px;
+            height: 60px;
+            background-color: orange;
+        }
+        .cur{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{a}}</h1>
+
+        <!-- b is a function, but it looks like a value here -->
+        <h1>{{b}}</h1>
+
+        <h1>{{getA2()}}</h1>
+
+        <div>
+            <input type="button" value="a++" v-on:click="aadd">
+            <input type="button" value="a--" v-on:click="aminus">
+            <input type="button" value="b++" v-on:click="badd">
+        </div>
+        <hr>
+        <div class="box" v-bind:style="{width:b+'px'}">
+
+        </div>
+        <hr>
+        <h1 v-bind:class="{'cur':iscur}">haha</h1>
+        <hr>
+        <input type="button" value="showWhat" v-on:click="changeShow">
+        <h1 v-if="ashow">A</h1>
+        <h1 v-else>B</h1>
+        <hr>
+        <ul>
+            <template v-if="man">
+                <li>xixi</li>
+                <li>haha</li>
+            </template>
+            <template v-else>
+                <li>hehe</li>
+                <li>sisi</li>
+            </template>
+        </ul>
+        <hr>
+        <input type="button" value="changeArr" v-on:click="changeArr">
+        <!-- <p v-for="item in arr" track-by="$index">{{$index}}-{{item}}</p> -->
+        <p v-for="item in arr" track-by="_sid">{{item.name}}-{{$index}}</p>
+    </div>
+    <script src="assets/all.js"></script>
+</body>
+</html>

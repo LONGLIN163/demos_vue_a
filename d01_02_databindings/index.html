@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 60px;
+            height: 60px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{a}}</h1>
+        <h1>{{b}}</h1>
+        <h1>{{c}}</h1>
+        <h1>{{d}}</h1>
+        <div>
+            <input type="button" value="add" v-on:click="add">
+            <input type="button" value="minus" v-on:click="min">
+        </div>
+        <div>
+            {{{somehtml}}}
+        </div>
+        <P id="para-{{a}}">
+            haha
+        </P>
+        <p>
+            {{txt | uppercase}}
+        </p>
+        <hr>
+        <input type="button" value="hideAndShow" v-on:click="hideAndShow">
+        <p class="box" v-if="boxShow===true">
+        </p>
+    </div>
+    <script src="assets/all.js"></script>
+</body>
+</html>
