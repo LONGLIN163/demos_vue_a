@@ -1,0 +1,7 @@
+{
+    "cart":[
+        {"name":"phone",    "price":2000, "quantity":0, "amount":0},
+        {"name":"computer", "price":3000, "quantity":0, "amount":0},
+        {"name":"frige",    "price":4000, "quantity":0, "amount":0}
+    ] 
+}
