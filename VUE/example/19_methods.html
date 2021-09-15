@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>{{a}}</h1>
+       <button @click="add(10,$event)">add</button>
+       <div>
+           <btncompo @click.native="add(10,$event)"></btncompo>
+       </div>
+    </div>
+    <div>
+        <button onclick="app.add(3)">add3</button>
+    </div>
+
+    <script>
+        const btncompo = Vue.component('btncompo',{
+            template:`
+              <button>add2</button>
+            `
+        });
+
+        var app=new Vue({
+            el:"#app",
+            data:{
+               a:0
+            },
+            components:{
+               btncompo
+            },
+            methods:{
+                add:function(num,e){
+                    this.a+=num;
+                    console.log(e)
+                }
+            }
+        });
+    </script>
+</body>
+</html>

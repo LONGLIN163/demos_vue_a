@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extends</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>{{a}}</h1>
+       <h1>${a}</h1>
+       <button @click="add">add</button>
+    </div>
+    <script>
+        var extendsObj={
+            updated:function(){
+                console.log("this is extends update---"+this.a)
+            },
+            methods:{
+                add:function(){
+                    console.log("this is extends hahaha methods---"+this.a)
+                    this.a++;
+                }
+            }
+        }
+
+        var app=new Vue({
+            el:"#app",
+            data:{
+               a:0
+            },
+            methods:{
+                add:function(){
+                    this.a++;
+                }
+            },
+            updated:function(){
+                console.log("this is native update---"+this.a)
+            },
+            extends:extendsObj,
+            delimiters: ['${', '}'],
+        });
+    </script>
+</body>
+</html>

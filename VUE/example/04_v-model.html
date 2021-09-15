@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>{{message}}</h1>
+    <hr>
+    <div id="app">
+       <h3>{{message}}</h3>
+       <hr>
+       <h1>Text</h1> 
+       <p>
+        <input type="text" v-model.lazy="message">
+       </p>
+       <p>
+        <input type="text" v-model.number="message">
+       </p>
+       <p>
+        <input type="text" v-model.trim="message">
+       </p>
+        
+       <hr>
+       <h1>Textarea</h1>
+       <p>
+           <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+       </p>
+
+       <hr>
+       <h1>checkbox bind one value</h1>
+       <p>
+           <input type="checkbox" name="" id="isTrue" v-model="isTrue">
+           <label for="isTrue">{{isTrue}}</label>
+       </p>
+
+       <hr>
+       <h1>checkbox bind multi-values</h1>
+       <p>
+           <input type="checkbox" name="" id="name1" value="name1" v-model="names">
+           <label for="isTrue">name1</label>
+           <input type="checkbox" name="" id="name2" value="name2" v-model="names">
+           <label for="isTrue">name2</label>
+           <input type="checkbox" name="" id="name3" value="name3" v-model="names">
+           <label for="isTrue">name3</label>
+       </p>
+       <p>checked names:{{names}}</p>
+
+       <hr>
+       <h1>checkbox bind multi-values</h1>
+       <p><input v-model="gender" type="radio" name="" id="male" value="male">     <label for="male"></label> male</p>
+       <p><input v-model="gender" type="radio" name="" id="female" value="female"> <label for="female"></label> female</p>
+       <p>selected:{{gender}}</p>
+
+    </div>
+
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:'haha',
+                isTrue:true,
+                names:[],
+                gender:''
+            }
+        });
+    </script>
+</body>
+</html>

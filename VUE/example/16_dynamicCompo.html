@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component :is="someCompo"></component>
+        <button @click="changeCompo('haha')">show component haha</button>
+        <button @click="changeCompo('xixi')">show component xixi</button>
+        <button @click="changeCompo('hehe')">show component hehe</button>
+    </div>
+    <script>
+        const haha = {
+                template:`<h3 style="color:red">I am hahaha...</h3>`
+            }
+        const xixi = {
+                template:`<h3 style="color:green">I am xixixi...</h3>`
+            } 
+        const hehe = {
+                template:`<h3 style="color:green">I am hehehe...</h3>`
+            } 
+
+        var app=new Vue({
+            el:"#app",
+            data:{
+                someCompo:'haha'
+            },
+            components:{
+                haha,
+                xixi,
+                hehe
+            },
+            methods:{
+                changeCompo:function(compo){
+                   this.someCompo=compo
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instance methods</title>
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>{{a}}</h1>
+       <p><button @click="add">add</button></p>
+       <!-- <p><button @click="minus">minus</button></p> -->
+    </div>
+    <p><button onclick="minus()">minus</button></p>
+    <p><button onclick="minusOnce()">minusOnce</button></p>
+    <p><button onclick="off()">off</button></p>
+
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+               a:123
+            },
+            methods:{
+                add:function(){
+                    this.a++
+                }
+            }
+        });
+
+        app.$on('minus', function () {
+            console.log("minus excuted???")
+            this.a--
+        });
+        function minus(){
+            app.$emit('minus');
+        }
+        
+        app.$once('minusOnce', function () {
+            console.log("minus excuted once!!!")
+            this.a--
+        });
+        function minusOnce(){
+            app.$emit('minusOnce');
+        }
+
+        function off(){
+            app.off('minus')
+        }
+
+    </script>
+</body>
+</html>

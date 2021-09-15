@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h3>temperature:{{temp}}</h3>
+       <h1>advice:{{adv}}</h1>
+       <p>
+           <button @click="add">add</button>
+           <button @click="minus">minus</button>
+       </p>
+    </div>
+    <script>
+        var dressAdvArr=["t-shirt","long arm","coat"]
+        var app=new Vue({
+            el:"#app",
+            data:{
+               temp:20,
+               adv:'long arm'
+            },
+            methods:{
+                add: function(){
+                    this.temp+=5
+                },
+                minus: function(){
+                    this.temp-=5
+                }
+            },
+            // watch:{
+            //     temp:function(newVal,oldVal){
+            //         if(newVal>=25){
+            //             //this.adv="t-shirt"
+            //             this.adv=dressAdvArr[0]
+            //         }else if(newVal>0 && newVal<25){
+            //             //this.adv="long arm"
+            //             this.adv=dressAdvArr[1]
+            //         }else{
+            //             //this.adv="coat"
+            //             this.adv=dressAdvArr[2]
+            //         }
+            //     }
+            // }
+        });
+
+        app.$watch('temp', function (newVal, oldVal) {
+            console.log("working or not")
+            if(newVal>=25){
+                //this.adv="t-shirt"
+                this.adv=dressAdvArr[0]
+            }else if(newVal>0 && newVal<25){
+                //this.adv="long arm"
+                this.adv=dressAdvArr[1]
+            }else{
+                //this.adv="coat"
+                this.adv=dressAdvArr[2]
+            }
+        });
+    </script>
+</body>
+</html>

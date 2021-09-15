@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>different way of create template</h1>
+    <hr>
+    <div id="app">
+       <h1>{{message}}</h1>
+    </div>
+
+    <!-- method2 -->
+    <template id="method2">
+        <div>
+            <h1 style="color:red">我是method2标签模板</h1>
+        </div>
+    </template>
+
+    <script type="x-template" id="method3">
+        <h1 style="color:red">我是 method3 script 标签模板</h1>
+    </script>
+
+
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+               message:'hello world'
+            },
+            //template:"#method2"
+            template:"#method3"
+            // method1
+            // template:` 
+            //     <h1 style="color:red">我是method1选项模板</h1>
+            // `
+        });
+    </script>
+</body>
+</html>

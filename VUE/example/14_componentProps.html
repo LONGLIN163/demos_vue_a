@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+       <!-- <haha dosth="laughing"></haha> -->
+
+       <!-- <haha doSth="laughing"></haha> -->
+
+       <!-- <haha do-sth="laughing"></haha> -->
+
+       <haha :dosth="message"></haha>
+    </div>
+
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:"hahaha...."
+            },
+            components:{
+                "haha":{
+                    //template:`<h3 style="color:green">I am {{dosth}} </h3>`,
+                    //props:['dosth']
+
+                    //template:`<h3 style="color:green">I am {{doSth}} </h3>`,
+                    //props:['doSth']
+
+                    // template:`<h3 style="color:green">I am {{doSth}} </h3>`,
+                    // props:['doSth']
+
+                    template:`<h3 style="color:green">I am {{dosth}} </h3>`,
+                    props:['dosth']
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

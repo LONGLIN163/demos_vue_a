@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+       <h1>bind attrs</h1>
+       <p>
+           <img src="https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337" alt="">
+        </p>
+        <p>
+            <img v-bind:src="aImage" alt="">
+        </p>
+        <p>
+            <a :href="blogUrl">my blog</a>
+        </p>
+
+        <hr>
+        <h1>bind class</h1>
+        <p>
+            <div :class="className">classA</div>
+            <div :class={classA:isOk}>classA</div>
+            <div :class="{classA:isOk}">classA</div>
+            <div :class="{classA:isOk}">classA</div>
+            <div>
+                <input type="checkbox" name="" id="isOk" v-model="isOk">
+                <label for="isOk">isOk is : {{isOk}}</label>
+            </div>
+            <div :class="[classa, classb]">class....</div>
+            <div :class="isOk? classa : classb">san yuan....</div>
+        </p>
+
+        <hr>
+        <h1>bind style</h1>
+        <p>
+            <!-- <div :style="{color:'red',fontSize:150%}">style</div> -->
+            <div :style="{color:'red',fontSize:'40px'}">style</div>
+            <div :style="{color:color,fontSize:fontSize}">style</div>
+            <div :style="styleObj">style obj</div>
+        </p>
+
+    </div>
+
+    <style>
+        .classA {
+            color:red;
+        }
+
+        .classB {
+            font-size: 150%;
+        }
+    </style>
+    
+
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+               a:123,
+               aImage:"https://www.iata.org/contentassets/d7c512eb9a704ba2a8056e3186a31921/cargo_live_animals_parrot.jpg?w=330&h=200&mode=crop&scale=both&v=20191213012337",
+               blogUrl:"https://ll-blog-client.vercel.app/",
+               className:"classA",
+               isOk:false,
+               classa:"classA",
+               classb:"classB",
+               color:"green",
+               fontSize:'30px',
+               styleObj:{
+                 color:'blue',
+                 fontSize:'40px'
+               }
+            }
+        });
+    </script>
+</body>
+</html>

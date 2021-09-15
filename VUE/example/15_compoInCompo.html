@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <haha></haha>
+    </div>
+
+    <script>
+
+        // const haha = {
+        //         template:`<h3 style="color:red">I am hahaha</h3>`
+        //       }
+        
+        const xixi = {
+                template:`<h3 style="color:green">I am xixixi</h3>`
+              }
+
+        const haha = {
+            template:`
+            <div>
+                <h3 style="color:red">I am hahaha</h3>
+                <xixi></xixi>
+                </div>
+                `,
+                components:{
+                    xixi
+                }
+            }
+            
+
+        var app=new Vue({
+            el:"#app",
+            components:{
+                haha
+            }
+        });
+
+
+    </script>
+</body>
+</html>

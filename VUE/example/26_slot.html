@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>helloworld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <blog>
+           <span slot="blogUrl">{{blogData.blogUrl}}</span>
+           <span slot="nickname">{{blogData.nickname}}</span>
+           <span slot="skill">{{blogData.skill}}</span>
+       </blog>
+    </div>
+
+    <template id="blogtemp">
+        <div>
+            <h3>blogUrl:<slot name="blogUrl"></slot></h3>
+            <h3>nickname:<slot name="nickname"></slot></h3>
+            <h3>skill:<slot name="skill"></slot></h3>
+            
+        </div>
+    </template>
+
+    <script>
+        const blog = Vue.component('blog',{
+            template:"#blogtemp"
+        });
+        var app=new Vue({
+            el:"#app",
+            data:{
+               blogData:{
+                   blogUrl:"https://ll-blog-client.vercel.app/",
+                   nickname:"haha",
+                   skill:"js"
+               }
+            },
+            components:{
+                blog
+            }
+        });
+    </script>
+</body>
+</html>
